@@ -24,8 +24,8 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 40px 24px;
-  overflow: hidden;
+  padding: 40px 24px 56px;
+  overflow-x: hidden;   /* clip the rotated watermark sideways, but never the content below */
   /* subtle cinematic vignette */
   background:
     radial-gradient(120% 90% at 50% 35%, #161313 0%, #000 70%) no-repeat;
@@ -57,7 +57,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 30px;
+  gap: 22px;
   max-width: 920px;
 }
 
@@ -81,8 +81,8 @@ body {
   display: flex;
   flex-direction: column;
 }
-.logo .line { font-size: clamp(44px, 13vw, 132px); }
-.logo .big { font-size: clamp(64px, 20vw, 210px); }
+.logo .line { font-size: clamp(40px, 10vw, 92px); }
+.logo .big { font-size: clamp(56px, 15vw, 144px); }
 
 .tagline {
   font-size: clamp(10px, 1.5vw, 13px);
@@ -96,14 +96,14 @@ body {
 .countdown {
   display: flex;
   align-items: flex-start;
-  gap: clamp(18px, 5vw, 56px);
-  margin-top: 6px;
+  gap: clamp(16px, 4vw, 44px);
+  margin-top: 2px;
 }
 .unit { display: flex; flex-direction: column; align-items: center; }
 .num {
   font-family: var(--serif);
   font-weight: 900;
-  font-size: clamp(44px, 12vw, 110px);
+  font-size: clamp(40px, 9vw, 82px);
   line-height: 1;
   color: var(--red);
   font-variant-numeric: tabular-nums;
