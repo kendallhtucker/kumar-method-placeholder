@@ -40,10 +40,10 @@ body {
   font-family: var(--serif);
   font-weight: 900;
   font-style: italic;
-  font-size: 26vh;
+  font-size: 30vh;
   line-height: 1;
   color: var(--red);
-  opacity: 0.06;
+  opacity: 0.16;
   letter-spacing: -0.02em;
   white-space: nowrap;
   pointer-events: none;
