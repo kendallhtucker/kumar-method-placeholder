@@ -1,9 +1,10 @@
-/* The Kumar Method — placeholder. Matches the brand key art: light grey, black condensed grotesque, Kumar. No sponsor logo (pre-reveal). */
+/* The Kumar Method — placeholder. Matches @thekumarmethod: black + scarlet display serif, cinematic. */
 :root {
-  --bg: #e8e8e8;          /* exact grey sampled from the key art */
-  --ink: #0c0c0c;
-  --muted: #6c6c6c;
-  --display: "Anton", "Helvetica Neue", Arial, sans-serif;
+  --black: #000000;
+  --ink: #0a0a0a;
+  --red: #e8121d;   /* scarlet display red, matched to the IG grid */
+  --white: #f5f3ef;
+  --serif: "Bodoni Moda", "Times New Roman", Times, serif;
   --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -11,76 +12,116 @@
 
 html, body {
   min-height: 100%;
-  background: var(--bg);
-  color: var(--ink);
+  background: var(--black);
+  color: var(--white);
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
 }
 
 body {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 32px 24px 48px;
+  padding: 40px 24px;
+  overflow: hidden;
+  /* subtle cinematic vignette */
+  background:
+    radial-gradient(120% 90% at 50% 35%, #161313 0%, #000 70%) no-repeat;
+}
+
+/* Oversized brand word bleeding behind the content (their key word: INEVITABLE) */
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  font-family: var(--serif);
+  font-weight: 900;
+  font-style: italic;
+  font-size: 26vh;
+  line-height: 1;
+  color: var(--red);
+  opacity: 0.06;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
 }
 
 .wrap {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 26px;
-  width: 100%;
-  max-width: 880px;
+  gap: 30px;
+  max-width: 920px;
 }
 
-/* Hero key art carries the wordmark in the brand's own type */
-.hero {
-  display: block;
-  width: 100%;
-  max-width: 860px;
-  height: auto;
-  /* blend the photo's grey edges into the page */
-  margin-bottom: -2px;
+.meta-top {
+  display: flex;
+  gap: 28px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  color: rgba(245, 243, 239, 0.55);
 }
+
+/* Wordmark — bold scarlet serif, cropped-large like the grid */
+.logo {
+  font-family: var(--serif);
+  font-weight: 900;
+  color: var(--red);
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+}
+.logo .line { font-size: clamp(44px, 13vw, 132px); }
+.logo .big { font-size: clamp(64px, 20vw, 210px); }
 
 .tagline {
-  font-size: clamp(11px, 1.6vw, 14px);
+  font-size: clamp(10px, 1.5vw, 13px);
   font-weight: 700;
   letter-spacing: 0.42em;
+  color: var(--white);
   text-transform: uppercase;
-  color: var(--ink);
 }
 
-/* Countdown — heavy condensed numerals echoing the wordmark */
+/* Countdown — red serif numerals on black */
 .countdown {
   display: flex;
   align-items: flex-start;
-  gap: clamp(20px, 6vw, 64px);
+  gap: clamp(18px, 5vw, 56px);
+  margin-top: 6px;
 }
 .unit { display: flex; flex-direction: column; align-items: center; }
 .num {
-  font-family: var(--display);
-  font-size: clamp(48px, 13vw, 104px);
-  line-height: 0.9;
-  color: var(--ink);
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(44px, 12vw, 110px);
+  line-height: 1;
+  color: var(--red);
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.01em;
 }
 .lbl {
-  margin-top: 14px;
+  margin-top: 12px;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.3em;
-  color: var(--muted);
+  color: rgba(245, 243, 239, 0.6);
 }
 
 .date {
-  font-family: var(--display);
-  font-size: clamp(18px, 2.8vw, 26px);
-  letter-spacing: 0.08em;
-  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(15px, 2.4vw, 22px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--white);
 }
 
 .socials {
@@ -88,27 +129,33 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
+  margin-top: 4px;
 }
 .socials a {
-  color: var(--ink);
+  color: var(--white);
   text-decoration: none;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.2em;
-  border: 1.5px solid var(--ink);
+  border: 1px solid rgba(245, 243, 239, 0.4);
   padding: 11px 20px;
-  transition: background 0.14s ease, color 0.14s ease;
+  transition: background 0.14s ease, color 0.14s ease, border-color 0.14s ease;
 }
-.socials a:hover { background: var(--ink); color: var(--bg); }
+.socials a:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
 
 .handle {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.28em;
-  color: var(--muted);
+  color: rgba(245, 243, 239, 0.45);
 }
 
 @media (max-width: 520px) {
-  .countdown { gap: 16px; }
-  .num { font-size: 56px; }
+  .meta-top { gap: 16px; font-size: 10px; letter-spacing: 0.2em; }
+  .countdown { gap: 14px; }
+  .watermark { font-size: 18vh; }
 }
