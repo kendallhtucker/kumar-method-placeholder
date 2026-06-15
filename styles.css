@@ -31,25 +31,6 @@ body {
     radial-gradient(120% 90% at 50% 35%, #161313 0%, #000 70%) no-repeat;
 }
 
-/* Oversized brand word bleeding behind the content (their key word: INEVITABLE) */
-.watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
-  font-family: var(--serif);
-  font-weight: 900;
-  font-style: italic;
-  font-size: 30vh;
-  line-height: 1;
-  color: var(--red);
-  opacity: 0.16;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-}
-
 .wrap {
   position: relative;
   z-index: 1;
@@ -157,5 +138,4 @@ body {
 @media (max-width: 520px) {
   .meta-top { gap: 16px; font-size: 10px; letter-spacing: 0.2em; }
   .countdown { gap: 14px; }
-  .watermark { font-size: 18vh; }
 }
